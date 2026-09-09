@@ -1,16 +1,16 @@
 ---
 name: deep-research
-description: Conduct first-principles multi-source research matching or exceeding ChatGPT Deep Research. Use when the user requests deep research, thorough investigation, literature review, market or policy analysis, competitive intelligence, due diligence, decision brief, systematic evidence synthesis, or phrases such as research thoroughly, investigate in depth, comprehensive report. Decomposes questions into falsifiable claims, retrieves primary sources via web and X, adversarially checks, calibrates uncertainty, and delivers a cited report with a claim ledger and reproducible method. Prefer primary documents over consensus. Not for simple factual lookups.
+description: Conduct first-principles multi-source research matching or exceeding ChatGPT Deep Research. Use when the user requests deep research, thorough investigation, literature review, market or policy analysis, competitive intelligence, due diligence, decision brief, systematic evidence synthesis, or phrases such as research thoroughly, investigate in depth, comprehensive report. Decomposes questions into falsifiable claims, retrieves primary sources via web and X, adversarially checks, calibrates uncertainty, and delivers a topic-native cited report (Layer A) plus an audit appendix with claim ledger and method (Layer B). Prefer primary documents over consensus. Not for simple factual lookups.
 metadata:
   type: methodology
-  version: "2.0"
+  version: "2.1"
   standard: first-principles research engine
   complements: fgi-research, blob-placement, institutional-archaeology, strategic-intelligence-analyst, benz-research, records-request-expert
 ---
 
 # Deep Research Engine
 
-Research is a control loop, not a long essay. Form the right question, gather primary evidence, test competing hypotheses, report known / contested / unknown with calibrated confidence. The unit of work is the claim. The report is a projection of the claim ledger.
+Research is a control loop, not a long essay. Form the right question, gather primary evidence, test competing hypotheses, report known / contested / unknown with calibrated confidence. The unit of work is the claim. The ledger is working memory. The report is an argument written from the ledger, not a printout of it.
 
 This skill is the general research engine. If the question is Blob / censorship-industrial / funding-genealogy, escalate or combine with `fgi-research`, `blob-placement`, or `institutional-archaeology`. Do not dilute those methods here.
 
@@ -84,7 +84,7 @@ Extract entities, time bounds, geography, audience, must-include and must-exclud
 
 If two interpretations would produce different research, ask up to five high-leverage clarifiers. If the user cannot be asked, lock the higher-stakes reading and state the assumption.
 
-Classify the task. Fact / comparison / causal / forecast / landscape / due-diligence. This chooses source universe and stop threshold.
+Classify the task. Fact / comparison / causal / forecast / landscape / due-diligence / existence-negative / first-contact-historiography. This chooses source universe, stop threshold, and Layer A section grammar.
 
 ### P1 — Question engineering
 
@@ -97,6 +97,8 @@ Name the S0 fact-owners that should exist if the world is as expected (agency ta
 Delete any atomic question that cannot change the answer.
 
 Copy the plan skeleton from [assets/plan-template.md](assets/plan-template.md). In Standard+ state the plan briefly before harvesting. Do not wait for approval unless the user asked to review the plan or the scope is expensive/irreversible.
+
+Atomic questions are working memory. They do not have to become H2 headings in Layer A.
 
 ### P2 — Source universe
 
@@ -155,15 +157,26 @@ If the adversarial pass changes a load-bearing claim, update the ledger before w
 
 ### P6 — Synthesize
 
-Write from the ledger. Do not invent structure that the evidence does not support.
+Write from the ledger. The ledger is source of truth; the report is the argument.
 
-Organize by atomic questions, not by themes that sounded good.
+Do not invent structure the evidence does not support. Do not print the atomic-question list as the outline unless the user requested an audit pack.
 
-Label fact, interpretation, and recommendation separately.
+After P5, write a 4–8 heading outline a specialist in *this* field would use. Map atomic questions into those headings. Forbidden heading family in Layer A: `Findings by atomic question`, `Q1`–`Q12`, `Compact ledger`, `Claim / Evidence / Credence`.
 
-Surface contradictions in the body. Do not bury them in a polite appendix.
+Question-class starter outlines
 
-Keep the report as short as the evidence allows. Length is not quality. ChatGPT Deep Research often over-cites and dilutes. Do not.
+- Existence / negative — Answer → Search envelope → Near-misses and lookalikes → What silence does not prove
+- First-contact / historiography — Earliest artifact → Timeline → Analysis vs contact → Later confusions
+- Comparison — Criteria → Side-by-side table → Synthesis
+- Actor / network — Who → Documented ties → Disputed ties → Residual
+- Policy / institutional stance — What the institution may claim → Mission generators → Signed work vs vote → What the record is not
+- Market / landscape — Size and vintage → Players → Drivers → Contested numbers → Implications
+
+Each Layer A section carries judgment in the sentence: finding first, decisive evidence next, why the distinction matters, residual uncertainty in the same paragraph family. Ban process-speak in Layer A (`opened page`, `this session`, `atomic question`). Allowed substitutes: `the public record`, `filings and contemporaneous reporting`, `no primary source located`.
+
+Label fact, interpretation, and recommendation so a reader can tell them apart. Surface contradictions in the body. Do not bury them.
+
+Keep the report as short as the evidence allows. Length is not quality. Target "just long enough and considered," not Gemini-length padding and not a 14,000-word blog.
 
 ### P7 — Verify then ship
 
@@ -175,7 +188,16 @@ Completeness audit against the P1 question list.
 
 Calibration audit — every high-confidence claim has a named primary or two independents. Every point estimate has date, unit, and source.
 
-If a gate fails, fix or demote. Do not ship a complete-looking falsehood.
+Construction audit (G-NARRATIVE)
+
+- G-N1 Layer A can be read without knowing this skill exists.
+- G-N2 Section grammar matches the question class, not P0–P7.
+- G-N3 No section is only a relabel of another section (ledger ≠ findings).
+- G-N4 A competent stranger can restate the argument in three sentences after one pass.
+
+If G-NARRATIVE fails, rewrite Layer A. Do not ship the notebook.
+
+If a truth gate fails, fix or demote. Do not ship a complete-looking falsehood.
 
 ## Stop gate
 
@@ -193,24 +215,33 @@ Do not continue because more pages exist. Diagnostic diminishing returns is the 
 
 ## Output contract
 
-Follow [assets/report-template.md](assets/report-template.md). Required sections, in order
+Follow [assets/report-template.md](assets/report-template.md). Two layers. Layer A is the product. Layer B is ground support. Hard laws apply to both. Layer B may not precede Layer A.
 
-1. Mode, restated question, decision the report informs, and assumed defaults or exclusions from P0.
-2. Executive answer — at most 15 lines, with confidence. No throat-clearing.
-3. What would change this answer.
-4. Findings by atomic question — claim, evidence, confidence.
-5. Contested points and definition mismatches.
-6. Numbers table — value, unit, vintage, source. Empty cells stay unknown.
-7. Unknowns — including primaries that should exist and were not found.
-8. Method appendix — queries run, pages opened, sources rejected and why, stop reason. Required on Standard+.
-9. Source register and compact claim ledger.
+### Layer A — report the user reads
 
-Scout may collapse 4–9 into a short brief plus sources.
+1. Title that names the object and the bound, not the mode.
+2. One-sentence nut graf. Mode may sit in a single italic line under the title, not as the first heading.
+3. Executive answer — at most 12–15 lines of prose, with confidence. No labeled fields. No throat-clearing.
+4. What would change this answer — stays in Layer A.
+5. Topic-native body, 4–8 H2s chosen after P5. Continuous prose. Inline citations. At least one content table in Standard+ (timeline, comparison, disambiguation, or numbers-with-vintage). Metadata tables (credence, tier) do not count.
+6. Contested definitions and unknowns written as considered paragraphs or a short box, not a process checklist.
+7. Conclusion that answers the P0 decision: known, not known, what a careful reader should and should not infer, next instrument if an unknown remains load-bearing.
+8. Sources used — short register at the end of Layer A, or rely on runtime citations if those already point at opened pages.
+
+### Layer B — appendix the auditor reads
+
+Required on Standard+. Scout may omit. Deep/Ultra print in full.
+
+- How this was researched — queries, pages opened, sources rejected and why, stop reason.
+- Compact claim ledger.
+- Independence groups if a load-bearing number has reprint risk.
+
+Scout may collapse Layer A to title + exec + short body + sources.
 Ultra may add a recommended next-instrument list (FOIA, dataset request, expert call).
 
-Length discipline — Scout under 400 words. Standard 800–1500. Deep 1500–3500. Ultra 3000–6000 plus appendices. Longer is a defect unless the success test is a survey.
+Length discipline — Scout under 400 words of Layer A. Standard 800–1800 of Layer A. Deep 1500–3500 of Layer A. Ultra 3000–6000 of Layer A plus appendices. Layer B is extra. Longer Layer A is a defect unless the success test is a survey.
 
-Voice — precise, audit-ready, no landscape throat-clearing. Prefer tables for comparisons and numbers.
+Voice — precise, continuous, no landscape throat-clearing, no process-speak in Layer A. Prefer content tables for comparisons and numbers.
 
 Cite with the runtime citation component when the tool returned a citation id. Otherwise use the retrieved URL.
 
@@ -240,3 +271,5 @@ Name the handoff. Do not pretend this engine replaces those methods.
 - Averaging two different operational definitions into one fake consensus number.
 - Filling unknown cells so a table looks finished.
 - Emulating a 30-minute black box with sparse progress and an unauditable search path.
+- Shipping the claim ledger as the report spine (`Q1`–`Q12`, Claim / Evidence / Credence repeating in the body).
+- Opening on `Mode: Standard` instead of a title a reader would file.
