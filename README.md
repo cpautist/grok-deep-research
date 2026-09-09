@@ -1,204 +1,167 @@
 # Deep Research for Grok
 
-A first-principles research engine for Grok. It produces a **decision-first cited report** with a claim ledger, primary-source hierarchy, mandatory adversarial check, calibrated uncertainty, and a reproducible method appendix.
+First-principles research engine for Grok. Produces a decision-first cited report with a claim ledger, primary-source hierarchy, mandatory adversarial pass, calibrated uncertainty, and a reproducible method appendix.
 
-Built to match ChatGPT Deep Research on harvest-and-synthesis, and to refuse the failure modes that system still ships: unfaithful citations, rumor treated as authority, first-found outdated numbers, guessed table cells, and reports that look finished while omitting what would change the answer.
+This is the public package of the `deep-research` skill. It is designed to match ChatGPT Deep Research where that system is strong, and to refuse the failure modes that system still ships: unfaithful citations, rumor treated as authority, first-found outdated numbers, and reports that look finished while leaving the load-bearing cells unknown.
 
-**Install on [grok.com](https://grok.com) in about a minute. No terminal required.**
-
----
+**Repository:** [github.com/spiralbewilder/grok-deep-research](https://github.com/spiralbewilder/grok-deep-research)
 
 ## Install on grok.com (GUI)
 
-You need a Grok account signed in at [grok.com](https://grok.com). Chrome is the most reliable browser for uploads. The same skill syncs to the Grok iOS and Android apps on the same account.
+Use this path. It does not require a terminal.
 
-### Method 1 — Attach the files and save (easiest)
+### Fastest path — about one minute
 
-1. Open [grok.com](https://grok.com) and start a **new chat**.
-2. Click the **+** button next to the message box.
-3. Attach every file in this repository except `README.md` and `LICENSE`:
-   - `SKILL.md`
-   - `references/epistemics.md`
-   - `references/tool-policy.md`
-   - `references/failure-modes.md`
-   - `references/domain-routing.md`
-   - `assets/report-template.md`
-   - `assets/claim-ledger.md`
-   - `assets/plan-template.md`
-4. Send this message:
+1. Open [grok.com](https://grok.com) and sign in.
+2. Start a **new chat**.
+3. Click the paperclip / attach control on the composer and upload **`SKILL.md`** from this repository.
+   - Direct file: [SKILL.md](https://github.com/spiralbewilder/grok-deep-research/blob/main/SKILL.md)
+   - Raw download: [SKILL.md (raw)](https://raw.githubusercontent.com/spiralbewilder/grok-deep-research/main/SKILL.md)
+4. Send this message, exactly:
 
-```
-Save these files as a skill called deep-research.
-Make it available as /deep-research.
-Use SKILL.md as the skill body. Keep the references/ and assets/ files as bundled resources.
+```text
+Save this uploaded file as a Grok skill named deep-research.
+Keep the name deep-research.
+Make it available in every conversation from now on.
+Trigger it on: deep research, research thoroughly, literature review, due diligence, comprehensive report, investigate in depth.
+Confirm when it is saved.
 ```
 
-5. Wait until Grok confirms the skill is saved.
-6. Start another new chat and type `/deep-research` to confirm it appears.
+5. Wait for Grok to confirm the skill is saved.
+6. Open a **second new chat** and type:
 
-### Method 2 — Skills page upload
+```text
+Use the deep-research skill. Standard mode.
+Question: [your question]
+```
 
-1. On [grok.com](https://grok.com), open **Customize → Skills**.
-   - If you do not see Customize, open your **profile menu**, or type `/` in the chat box and look for **Skills** / **Skill Creator**.
-2. Click **New Skill** → **Upload skill file**.
-3. Upload either:
-   - a `.zip` of this repo that contains `SKILL.md` at the top level of the zip, or
-   - `SKILL.md` alone (Grok will still run; bundled references load if you also attach them in a follow-up: "Add these as resources for the deep-research skill").
-4. Accepted formats: `.md`, `.skill`, `.zip`.
-5. Save. The skill is now on your account.
+That is the whole install.
 
-How to make the zip from this repo:
+### If you also want the supporting files
 
-1. On this GitHub page click the green **Code** button → **Download ZIP**.
-2. Unzip it.
-3. Select the folder that contains `SKILL.md` (not only the README).
-4. Re-zip that folder so `SKILL.md` is at the root of the archive, not nested two levels down.
-5. Upload that zip on the Skills page.
+`SKILL.md` is enough to run. The `references/` and `assets/` files make the engine stricter (source hierarchy, recency trap, ship gates, report shape). To install the full package:
 
-### Method 3 — Skill Creator in chat
-
-1. On [grok.com](https://grok.com), type `/` in the chat box.
-2. Choose **Skill Creator** (built-in xAI skill).
-3. Attach `SKILL.md` (and the `references/` + `assets/` files if you want the full package).
+1. Download this repository as a zip:
+   [https://github.com/spiralbewilder/grok-deep-research/archive/refs/heads/main.zip](https://github.com/spiralbewilder/grok-deep-research/archive/refs/heads/main.zip)
+2. On grok.com, start a new chat.
+3. Upload the zip (or upload `SKILL.md` plus every file under `references/` and `assets/`).
 4. Send:
 
-```
-Create a skill named deep-research from these files.
-Keep the hard laws, S0–S5 hierarchy, phases P0–P7, ship gates, and output contract exactly.
+```text
+Save this package as a Grok skill named deep-research.
+Use SKILL.md as the skill body. Keep references/ and assets/ as supporting files the skill may load.
+Make it available in every conversation. Confirm when saved.
 ```
 
----
+### If the upload control is not visible
+
+xAI also ships a built-in **Skill Creator**.
+
+1. On grok.com, click the composer and type `/`.
+2. Open **Skill Creator** (sometimes labeled **New Skill** or listed under **Skills**).
+3. Name the skill `deep-research`.
+4. Paste the full contents of `SKILL.md`.
+5. Save.
+
+Some accounts also have **Skills** or **Manage Skills** under the profile menu or the left sidebar. If you see **Import** or **Upload skill file**, use that and drop `SKILL.md` or the repo zip. Accepted types observed in the GUI: `.md`, `.skill`, `.zip`.
+
+### How to tell it worked
+
+In a fresh chat, send:
+
+```text
+Do you have a skill named deep-research? Quote the first hard law.
+```
+
+A correct install quotes a rule equivalent to: cite only artifacts retrieved in this session.
+
+Then run a real query:
+
+```text
+/deep-research
+Compare the current evidence on [topic]. I need a decision-grade brief, not a topic essay.
+```
+
+or, without the slash:
+
+```text
+Deep research, Standard mode: what is the current evidence that [claim], and what would change the answer?
+```
 
 ## Use it
 
-In any new Grok chat on grok.com, iOS, or Android:
-
-| What you type | What happens |
+| You type | What Grok should do |
 |---|---|
-| `/deep-research` | Forces the skill on for the next task |
-| `/deep-research What is the evidence that …` | Runs the engine on that question |
-| `Use deep research on …` | Same, by name |
-| `Deep research: compare X vs Y for a buy decision` | Natural-language trigger |
-| `Literature review of …` / `due diligence on …` / `comprehensive report on …` | Also triggers from the skill description |
+| `Deep research: …` | Full Standard run |
+| `Research thoroughly: …` | Full Standard run |
+| `/deep-research` | Invoke the skill by name |
+| `Scout only: …` | Short pass, still bound by the hard laws |
+| `Deep mode: …` | Longer harvest, gap refill, formal critique |
+| `Ultra: …` | Maximum budget, unfinished facets marked unknown |
 
-Then give Grok the **decision**, not only the topic.
+Good prompts name the **decision**, the **time window**, and any sources to prefer or exclude.
 
-Good:
-
-```
-/deep-research
-Decision: should we adopt protocol X for production in 2026?
-Audience: engineering lead.
+```text
+Use deep-research. Deep mode.
+Decision: whether to treat X as current consensus.
 Time window: 2024–2026.
-I need failure modes, independent benchmarks, and what would change the recommendation.
-Mode: Deep.
+Prefer primary documents and official statistics.
+Exclude SEO explainers.
 ```
 
-Also good:
+Do not use this skill for a single lookup with one obvious official page. Ask that question normally.
 
-```
-Deep research the current evidence on [claim].
-I need primary sources, the strongest contrary view, and a confidence rating.
-Do not write a topic essay.
-```
+## What a finished report looks like
 
-Weak (the skill will rewrite this, but you will get a better report if you start here):
+1. Mode and restated question
+2. Executive answer (short, with confidence)
+3. What would change this answer
+4. Findings by atomic question
+5. Contested points and definition mismatches
+6. Numbers table with vintage
+7. Unknowns, including primaries that should exist and were not found
+8. Method appendix (queries run, pages opened, stop reason)
+9. Source register and compact claim ledger
 
-```
-Tell me everything about GPS.
-```
+Unknown is a valid cell. A complete-looking table with guessed numbers is a failed run.
 
-### Modes
+## Grok Build / local install (optional)
 
-Say the mode in the prompt, or let Grok pick. Default is **Standard**.
-
-| Mode | When to ask for it |
-|---|---|
-| Scout | Quick brief, scope a topic |
-| Standard | Default. Comparison, how-it-works, most questions |
-| Deep | High stakes, literature review, market / policy / diligence |
-| Ultra | Cost of being wrong is high. Expect a longer run |
-
-### What a finished report contains
-
-1. Direct answer (about 15 lines) with confidence
-2. What would change that answer
-3. Findings by atomic question, cited
-4. Contested points (not averaged)
-5. Numbers table with vintage and source
-6. Unknowns — including primaries that should exist and were not found
-7. Method appendix (queries run, pages opened, stop reason)
-8. Source register and compact claim ledger
-
-Grok will search the live web and X, open pages before citing them, and refuse to invent URLs.
-
----
-
-## Manage the skill on grok.com
-
-- View / edit / delete: **Customize → Skills** (or profile → Skills).
-- Update from this repo: download the new files and tell Grok `Update the deep-research skill from these files.`
-- Your copy overrides any built-in skill of the same name.
-- Skills persist across conversations on the same account (web, iOS, Android).
-
----
-
-## Optional: Grok Build / local agent
-
-If you use Grok Build or another SKILL.md-compatible agent instead of the grok.com GUI:
+For the terminal agent, not required for grok.com:
 
 ```bash
 git clone https://github.com/spiralbewilder/grok-deep-research.git
 mkdir -p ~/.grok/skills/deep-research
-cp -R grok-deep-research/SKILL.md grok-deep-research/references grok-deep-research/assets ~/.grok/skills/deep-research/
+cp SKILL.md ~/.grok/skills/deep-research/
+cp -R references assets ~/.grok/skills/deep-research/
 ```
 
-Project-local install:
+Project-scoped alternative: copy the same files to `your-repo/.grok/skills/deep-research/`. Start a new Grok Build session.
 
-```bash
-mkdir -p .grok/skills/deep-research
-cp -R SKILL.md references assets .grok/skills/deep-research/
-```
-
-Then start a new session. Invoke with `/deep-research`.
-
----
-
-## What this skill enforces
-
-- Cite only pages or posts opened in that session
-- S0–S5 source hierarchy; blogs and SEO mills cannot carry load-bearing claims
-- Two reprints of one press release count as one source
-- Unknown is a valid answer. Guessed table cells are rejected
-- After any time-sensitive number, search for a newer official figure (recency trap)
-- Mandatory attempt to kill the leading answer on Standard and above
-- Stop when information gain flattens, not when a clock or source-count quota is hit
-
-Full procedure: [`SKILL.md`](SKILL.md).
-Epistemics: [`references/epistemics.md`](references/epistemics.md).
-Tool routing: [`references/tool-policy.md`](references/tool-policy.md).
-Ship gates: [`references/failure-modes.md`](references/failure-modes.md).
-
----
-
-## Repository layout
+## Package layout
 
 ```
-SKILL.md                      # procedure Grok loads
-references/
-  epistemics.md               # hierarchy, ledger, contradiction, calibration
-  tool-policy.md              # which Grok tool to use when
-  failure-modes.md            # failure catalog and must-not-ship gates
-  domain-routing.md           # fact-owners by domain
-assets/
-  report-template.md
-  claim-ledger.md
-  plan-template.md
-README.md                     # you are here
+SKILL.md                         # skill body — this is what grok.com needs
+references/epistemics.md         # hierarchy, ledger, contradiction, calibration
+references/tool-policy.md        # tool routing, query design, recency trap
+references/failure-modes.md      # F-catalog and ship gates G1–G13
+references/domain-routing.md     # fact-owners by domain
+assets/report-template.md
+assets/claim-ledger.md
+assets/plan-template.md
+INSTALL-GROK.md                  # same GUI steps, printed as a checklist
 LICENSE
 ```
 
----
+## Design in one page
+
+- Unit of work: the claim, not the page.
+- Cite only artifacts opened in the current session.
+- S0–S5 source hierarchy. S4/S5 cannot carry a load-bearing quantitative or historical claim.
+- Two reprints of one progenitor are one source.
+- After any time-sensitive number, run an update search (recency trap).
+- Adversarial pass is mandatory in Standard and above.
+- Stop when information gain flattens, not when a clock or source-count quota is hit.
 
 ## License
 
