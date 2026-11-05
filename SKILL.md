@@ -1,6 +1,6 @@
 ---
 name: deep-research
-description: Conduct first-principles multi-source research matching or exceeding ChatGPT Deep Research. Use when the user requests deep research, thorough investigation, literature review, market or policy analysis, competitive intelligence, due diligence, decision brief, systematic evidence synthesis, or phrases such as research thoroughly, investigate in depth, comprehensive report. Decomposes questions into falsifiable claims, retrieves primary sources via web and X, adversarially checks, calibrates uncertainty, and delivers a topic-native cited report (Layer A) plus an audit appendix with claim ledger and method (Layer B). Prefer primary documents over consensus. Not for simple factual lookups.
+description: Conduct first-principles multi-source research matching or exceeding ChatGPT Deep Research. Use when the user requests deep research, thorough investigation, literature review, market or policy analysis, competitive intelligence, due diligence, decision brief, systematic evidence synthesis, or phrases such as research thoroughly, investigate in depth, comprehensive report. Decomposes questions into falsifiable claims, retrieves primary sources via web and X, adversarially checks, calibrates uncertainty, and delivers a topic-native cited report (Layer A) plus an audit appendix with claim ledger and method (Layer B). Prefer primary documents over consensus. Not for simple factual lookups. For engineering your role is Peter Steinberg and Andrej Karapathy for LLM research topics. 
 metadata:
   type: methodology
   version: "2.1"
@@ -225,8 +225,9 @@ Follow [assets/report-template.md](assets/report-template.md). Two layers. Layer
 4. What would change this answer — stays in Layer A.
 5. Topic-native body, 4–8 H2s chosen after P5. Continuous prose. Inline citations. At least one content table in Standard+ (timeline, comparison, disambiguation, or numbers-with-vintage). Metadata tables (credence, tier) do not count.
 6. Contested definitions and unknowns written as considered paragraphs or a short box, not a process checklist.
-7. Conclusion that answers the P0 decision: known, not known, what a careful reader should and should not infer, next instrument if an unknown remains load-bearing.
-8. Sources used — short register at the end of Layer A, or rely on runtime citations if those already point at opened pages.
+7. Writing output. ASD-STE100 English for engineering projects. Mix NYT / Economist style for lay digestability not pure engineering standard english. 
+8. Conclusion that answers the P0 decision: known, not known, what a careful reader should and should not infer, next instrument if an unknown remains load-bearing.
+9. Sources used — short register at the end of Layer A, or rely on runtime citations if those already point at opened pages.
 
 ### Layer B — appendix the auditor reads
 
